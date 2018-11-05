@@ -1,0 +1,12 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="Suite2">
+    <listeners>
+        <listener class-name="com.aventstack.extentreports.adapter.ExtentIReporterSuiteClassAdapter" />
+    </listeners>
+    <test name="IReporterTest">
+        <classes>
+            <class name="com.aventstack.extentreports.adapter.ireporter.Class1Tests" />
+            <class name="com.aventstack.extentreports.adapter.ireporter.Class2Tests" />
+        </classes>
+    </test>
+</suite>
