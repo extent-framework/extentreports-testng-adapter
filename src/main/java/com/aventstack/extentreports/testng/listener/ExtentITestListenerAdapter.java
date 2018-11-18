@@ -10,38 +10,38 @@ import com.aventstack.extentreports.service.ExtentTestManager;
 
 public class ExtentITestListenerAdapter implements ITestListener {
 
-	@Override
-	public synchronized void onStart(ITestContext context) {
-		ExtentService.getInstance().setAnalysisStrategy(AnalysisStrategy.TEST);
-	}
+    @Override
+    public synchronized void onStart(ITestContext context) {
+        ExtentService.getInstance().setAnalysisStrategy(AnalysisStrategy.TEST);
+    }
 
-	@Override
-	public synchronized void onFinish(ITestContext context) {
-		ExtentService.getInstance().flush();
-	}
+    @Override
+    public synchronized void onFinish(ITestContext context) {
+        ExtentService.getInstance().flush();
+    }
 
-	@Override
-	public synchronized void onTestStart(ITestResult result) {
-		ExtentTestManager.createMethod(result);
-	}
+    @Override
+    public synchronized void onTestStart(ITestResult result) {
+        ExtentTestManager.createMethod(result);
+    }
 
-	@Override
-	public synchronized void onTestSuccess(ITestResult result) {
-		ExtentTestManager.getTest(result).pass("Test passed");
-	}
+    @Override
+    public synchronized void onTestSuccess(ITestResult result) {
+        ExtentTestManager.getTest(result).pass("Test passed");
+    }
 
-	@Override
-	public synchronized void onTestFailure(ITestResult result) {
-		ExtentTestManager.getTest(result).fail(result.getThrowable());
-	}
+    @Override
+    public synchronized void onTestFailure(ITestResult result) {
+        ExtentTestManager.getTest(result).fail(result.getThrowable());
+    }
 
-	@Override
-	public synchronized void onTestSkipped(ITestResult result) {
-		ExtentTestManager.getTest(result).skip(result.getThrowable());
-	}
+    @Override
+    public synchronized void onTestSkipped(ITestResult result) {
+        ExtentTestManager.getTest(result).skip(result.getThrowable());
+    }
 
-	@Override
-	public synchronized void onTestFailedButWithinSuccessPercentage(ITestResult result) {
-	}
+    @Override
+    public synchronized void onTestFailedButWithinSuccessPercentage(ITestResult result) {
+    }
 
 }

@@ -3,7 +3,7 @@ package com.aventstack.extentreports.testng.listener.commons;
 import com.aventstack.extentreports.ExtentTest;
 
 public class ExtentTestCommons {
-    
+
     public static void assignGroups(ExtentTest test, String[] groups) {
         if (groups.length > 0) {
             for (String g : groups) {
@@ -22,5 +22,5 @@ public class ExtentTestCommons {
             }
         }
     }
-    
+
 }
