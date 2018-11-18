@@ -1,26 +1,28 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    
+
     <groupId>com.aventstack</groupId>
     <artifactId>extentreports-testng-adapter</artifactId>
-    <version>1.0.1</version>
+    <version>1.0.2</version>
     <name>extentreports-testng-adapter</name>
     <url>http://extentreports.com</url>
     <description>TestNG adapter for Extent Framework</description>
-    
+
     <scm>
         <connection>scm:git:https://github.com/extent-framework/extentreports-testng-adapter.git</connection>
         <developerConnection>scm:git:https://github.com/extent-framework/extentreports-testng-adapter.git</developerConnection>
         <url>https://github.com/extent-framework/extentreports-testng-adapter</url>
     </scm>
-    
+
     <licenses>
         <license>
             <name>The MIT License</name>
             <url>https://opensource.org/licenses/MIT</url>
         </license>
     </licenses>
-    
+
     <developers>
         <developer>
             <name>Anshoo Arora</name>
@@ -28,19 +30,19 @@
             <id>anshoo.arora</id>
             <roles>
                 <role>Owner</role>
-            </roles> 
+            </roles>
         </developer>
     </developers>
-    
+
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    </properties>  
-    
+    </properties>
+
     <dependencies>
         <dependency>
             <groupId>com.aventstack</groupId>
             <artifactId>extentreports</artifactId>
-            <version>4.0.0</version>
+            <version>4.0.1</version>
         </dependency>
         <dependency>
             <groupId>org.mongodb</groupId>
@@ -51,9 +53,9 @@
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
             <version>6.9.10</version>
-        </dependency>    
+        </dependency>
     </dependencies>
-    
+
     <build>
         <plugins>
             <plugin>
@@ -72,7 +74,7 @@
             </plugin>
         </plugins>
     </build>
-    
+
     <profiles>
         <profile>
             <id>release-sign-artifacts</id>
@@ -136,7 +138,7 @@
             </build>
         </profile>
     </profiles>
-    
+
     <distributionManagement>
         <snapshotRepository>
             <id>ossrh</id>
@@ -147,5 +149,5 @@
             <url>https://oss.sonatype.org/service/local/staging/deploy/maven2</url>
         </repository>
     </distributionManagement>
-    
+
 </project>
