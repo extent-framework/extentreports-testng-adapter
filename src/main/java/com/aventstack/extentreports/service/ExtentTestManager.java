@@ -18,7 +18,10 @@ public class ExtentTestManager {
     private static ThreadLocal<ExtentTest> dataProviderTest = new ThreadLocal<>();
 
     public static synchronized ExtentTest getTest() {
-        return methodTest.get();
+        ExtentTest t = dataProviderTest.get() == null
+                ? methodTest.get()
+                : dataProviderTest.get();
+        return t;
     }
 
     public static synchronized ExtentTest getTest(ITestResult result) {
@@ -72,6 +75,7 @@ public class ExtentTestManager {
             ExtentTest paramTest = methodTest.get().createNode(paramName);
             dataProviderTest.set(paramTest);
         } else {
+            dataProviderTest.set(null);
             createTest(result, null);
         }
         return methodTest.get();
