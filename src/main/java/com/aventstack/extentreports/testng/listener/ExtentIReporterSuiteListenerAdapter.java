@@ -26,6 +26,7 @@ public class ExtentIReporterSuiteListenerAdapter implements IReporter {
 
     @Override
     public void generateReport(List<XmlSuite> xmlSuites, List<ISuite> suites, String outputDirectory) {
+        ExtentService.getInstance().setReportUsesManualConfiguration(true);
         ExtentService.getInstance().setAnalysisStrategy(AnalysisStrategy.SUITE);
 
         for (ISuite suite : suites) {
@@ -64,6 +65,7 @@ public class ExtentIReporterSuiteListenerAdapter implements IReporter {
                     node.log(status, "Test " + status.toString().toLowerCase() + "ed");
                 }
 
+                node.getModel().getLogContext().getAll().forEach(x -> x.setTimestamp(getTime(result.getEndMillis())));
                 node.getModel().setStartTime(getTime(result.getStartMillis()));
                 node.getModel().setEndTime(getTime(result.getEndMillis()));
             }

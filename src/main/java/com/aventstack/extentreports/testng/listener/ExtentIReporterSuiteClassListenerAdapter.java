@@ -29,6 +29,7 @@ public class ExtentIReporterSuiteClassListenerAdapter implements IReporter {
 
     @Override
     public void generateReport(List<XmlSuite> xmlSuites, List<ISuite> suites, String outputDirectory) {
+        ExtentService.getInstance().setReportUsesManualConfiguration(true);
         ExtentService.getInstance().setAnalysisStrategy(AnalysisStrategy.SUITE);
 
         for (ISuite suite : suites) {
@@ -71,13 +72,14 @@ public class ExtentIReporterSuiteClassListenerAdapter implements IReporter {
 
                 String[] groups = result.getMethod().getGroups();
                 ExtentTestCommons.assignGroups(testNode, groups);
-
+                
                 if (result.getThrowable() != null) {
                     testNode.log(status, result.getThrowable());
                 } else {
                     testNode.log(status, "Test " + status.toString().toLowerCase() + "ed");
                 }
 
+                testNode.getModel().getLogContext().getAll().forEach(x -> x.setTimestamp(getTime(result.getEndMillis())));
                 testNode.getModel().setStartTime(getTime(result.getStartMillis()));
                 testNode.getModel().setEndTime(getTime(result.getEndMillis()));
             }
