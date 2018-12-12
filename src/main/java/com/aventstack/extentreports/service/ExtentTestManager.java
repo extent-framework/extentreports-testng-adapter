@@ -8,6 +8,7 @@ import java.util.Optional;
 import org.testng.ITestResult;
 
 import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.Status;
 import com.aventstack.extentreports.model.Test;
 import com.aventstack.extentreports.testng.listener.commons.ExtentTestCommons;
 
@@ -93,6 +94,29 @@ public class ExtentTestManager {
         String[] groups = result.getMethod().getGroups();
         ExtentTestCommons.assignGroups(test, groups);
         return test;
+    }
+    
+    public static synchronized void log(ITestResult result) {
+        String msg = "Test ";
+        Status status = Status.PASS;
+        switch (result.getStatus()) {
+            case ITestResult.SKIP:
+                status = Status.SKIP;
+                msg += "skipped";
+                break;
+            case ITestResult.FAILURE:
+                status = Status.FAIL;
+                msg += "failed";
+                break;
+            default:
+                msg += "passed";
+                break;
+        }
+        if (result.getThrowable() != null) {
+            ExtentTestManager.getTest(result).log(status, result.getThrowable());
+            return;
+        }
+        ExtentTestManager.getTest(result).log(status, msg);
     }
 
 }

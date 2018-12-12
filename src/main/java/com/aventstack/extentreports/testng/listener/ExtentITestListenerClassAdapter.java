@@ -27,17 +27,17 @@ public class ExtentITestListenerClassAdapter implements ITestListener {
 
     @Override
     public synchronized void onTestSuccess(ITestResult result) {
-        ExtentTestManager.getTest(result).pass("Test passed");
+        ExtentTestManager.log(result);
     }
 
     @Override
     public synchronized void onTestFailure(ITestResult result) {
-        ExtentTestManager.getTest(result).fail(result.getThrowable());
+        ExtentTestManager.log(result);
     }
 
     @Override
     public synchronized void onTestSkipped(ITestResult result) {
-        ExtentTestManager.getTest(result).skip(result.getThrowable());
+        ExtentTestManager.log(result);
     }
 
     @Override
