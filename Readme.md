@@ -1,14 +1,14 @@
-## extentreports-testng-adapter
+[![Maven Central](https://img.shields.io/maven-central/v/com.aventstack/extentreports-testng-adapter.svg?maxAge=300)](http://search.maven.org/#search|ga|1|g:"com.aventstack")
 
-### Docs
+### Extent Framework TestNG Adapter
 
 See [here](http://extentreports.com/docs/versions/4/java/testng.html) for complete docs.
 
-### Usage
+#### Usage
 
 See the [Listeners](http://extentreports.com/docs/versions/4/java/testng.html#listeners) section for usage instructions.
 
-### Examples
+#### Examples
 
 An example project is available [here](https://github.com/extent-framework/examples/tree/master/extentreports-testng-adapter-example) to understand the usage.
 
@@ -65,6 +65,6 @@ extent.reporter.logger.out=test-output/LoggerReport/
 extent.reporter.tabular.out=test-output/TabularReport/
 ```
 
-### License
+#### License
 
 extentreports-testng-adapter is MIT licensed.
