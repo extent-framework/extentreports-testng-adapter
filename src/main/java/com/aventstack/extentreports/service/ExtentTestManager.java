@@ -38,12 +38,13 @@ public class ExtentTestManager {
 
         String className = result.getInstance().getClass().getSimpleName();
         String methodName = result.getMethod().getMethodName();
+        String desc = result.getMethod().getDescription();
         ExtentTest classTest;
 
         if (classTestMap.containsKey(className)) {
             classTest = classTestMap.get(className);
         } else {
-            classTest = ExtentService.getInstance().createTest(className);
+            classTest = ExtentService.getInstance().createTest(className, desc);
             classTestMap.put(className, classTest);
         }
 
@@ -84,11 +85,12 @@ public class ExtentTestManager {
 
     private static synchronized ExtentTest createTest(ITestResult result, ExtentTest classTest) {
         String methodName = result.getMethod().getMethodName();
+        String desc = result.getMethod().getDescription();
         ExtentTest test;
         if (classTest != null) {
-            test = classTest.createNode(methodName, result.getMethod().getDescription());
+            test = classTest.createNode(methodName, desc);
         } else {
-            test = ExtentService.getInstance().createTest(methodName, result.getMethod().getDescription());
+            test = ExtentService.getInstance().createTest(methodName, desc);
         }
         methodTest.set(test);
         String[] groups = result.getMethod().getGroups();
