@@ -7,7 +7,6 @@ import java.util.Arrays;
 import java.util.Optional;
 import java.util.Properties;
 
-import com.aventstack.extentreports.ExtentReporter;
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.reporter.ConfigurableReporter;
 import com.aventstack.extentreports.reporter.ExtentAventReporter;
@@ -17,6 +16,7 @@ import com.aventstack.extentreports.reporter.ExtentEmailReporter;
 import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
 import com.aventstack.extentreports.reporter.ExtentKlovReporter;
 import com.aventstack.extentreports.reporter.ExtentLoggerReporter;
+import com.aventstack.extentreports.reporter.ExtentReporter;
 import com.aventstack.extentreports.reporter.ExtentTabularReporter;
 
 public class ExtentService implements Serializable {
@@ -199,16 +199,17 @@ public class ExtentService implements Serializable {
         }
 
         private static void initKlov(Properties properties) {
-            ExtentKlovReporter klov = new ExtentKlovReporter();
+        	ExtentKlovReporter klov = new ExtentKlovReporter("Default");
             String configPath = properties == null ? System.getProperty(CONFIG_KLOV_KEY)
                     : String.valueOf(properties.get(CONFIG_KLOV_KEY));
-            if (configPath != null && !configPath.isEmpty())
+            if (configPath != null && !configPath.isEmpty()) {
                 try {
                     klov.loadInitializationParams(configPath);
                     INSTANCE.attachReporter(klov);
                 } catch (FileNotFoundException e) {
                     e.printStackTrace();
                 }
+            }
         }
 
         private static void initLogger(Properties properties) {
