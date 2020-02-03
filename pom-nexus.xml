@@ -5,7 +5,7 @@
 
 	<groupId>com.aventstack</groupId>
 	<artifactId>extentreports-testng-adapter</artifactId>
-	<version>1.0.4-SNAPSHOT</version>
+	<version>1.0.4</version>
 	<name>extentreports-testng-adapter</name>
 	<url>http://extentreports.com</url>
 	<description>TestNG adapter for Extent Framework</description>
@@ -18,8 +18,8 @@
 
 	<licenses>
 		<license>
-			<name>The MIT License</name>
-			<url>https://opensource.org/licenses/MIT</url>
+			<name>The Apache Software License, Version 2.0</name>
+			<url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
 		</license>
 	</licenses>
 
@@ -42,7 +42,7 @@
 		<dependency>
 			<groupId>com.aventstack</groupId>
 			<artifactId>extentreports</artifactId>
-			<version>4.0.9</version>
+			<version>4.1.2</version>
 		</dependency>
 		<dependency>
 			<groupId>org.mongodb</groupId>
@@ -52,7 +52,7 @@
 		<dependency>
 			<groupId>org.testng</groupId>
 			<artifactId>testng</artifactId>
-			<version>6.9.10</version>
+			<version>6.14.3</version>
 		</dependency>
 	</dependencies>
 
