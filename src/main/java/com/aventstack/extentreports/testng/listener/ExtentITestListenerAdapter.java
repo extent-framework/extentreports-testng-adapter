@@ -1,14 +1,14 @@
 package com.aventstack.extentreports.testng.listener;
 
-import org.testng.ITestContext;
-import org.testng.ITestListener;
-import org.testng.ITestResult;
+import org.testng.*;
 
 import com.aventstack.extentreports.AnalysisStrategy;
 import com.aventstack.extentreports.service.ExtentService;
 import com.aventstack.extentreports.service.ExtentTestManager;
 
-public class ExtentITestListenerAdapter implements ITestListener {
+public class ExtentITestListenerAdapter implements ITestListener, IInvokedMethodListener {
+
+    private Boolean createdMethodBeforeInvocation = false;
 
     @Override
     public synchronized void onStart(ITestContext context) {
@@ -22,7 +22,8 @@ public class ExtentITestListenerAdapter implements ITestListener {
 
     @Override
     public synchronized void onTestStart(ITestResult result) {
-        ExtentTestManager.createMethod(result);
+        if (!createdMethodBeforeInvocation)
+            ExtentTestManager.createMethod(result);
     }
 
     @Override
@@ -42,6 +43,19 @@ public class ExtentITestListenerAdapter implements ITestListener {
 
     @Override
     public synchronized void onTestFailedButWithinSuccessPercentage(ITestResult result) {
+    }
+
+    @Override
+    public void beforeInvocation(IInvokedMethod method, ITestResult testResult) {
+        if (method.getTestMethod().isBeforeMethodConfiguration()) {
+            createdMethodBeforeInvocation = true;
+            ExtentTestManager.createMethod(testResult);
+        }
+    }
+
+    @Override
+    public void afterInvocation(IInvokedMethod method, ITestResult testResult) {
+
     }
 
 }
