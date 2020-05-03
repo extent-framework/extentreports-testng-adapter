@@ -33,3 +33,7 @@ target/
 
 # testng
 test-output/
+
+# Intellij
+.idea/
+*.iml
