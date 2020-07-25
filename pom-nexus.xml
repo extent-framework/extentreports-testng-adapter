@@ -4,62 +4,62 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.aventstack</groupId>
-	<artifactId>extentreports-testng-adapter</artifactId>
-	<version>1.2.0</version>
-	<name>extentreports-testng-adapter</name>
-	<url>http://extentreports.com</url>
-	<description>TestNG adapter for Extent Framework</description>
+    <artifactId>extentreports-testng-adapter</artifactId>
+    <version>1.2.1</version>
+    <name>extentreports-testng-adapter</name>
+    <url>http://extentreports.com</url>
+    <description>TestNG adapter for Extent Framework</description>
 
-	<scm>
-		<connection>scm:git:https://github.com/extent-framework/extentreports-testng-adapter.git</connection>
-		<developerConnection>scm:git:https://github.com/extent-framework/extentreports-testng-adapter.git</developerConnection>
-		<url>https://github.com/extent-framework/extentreports-testng-adapter</url>
-	</scm>
+    <scm>
+        <connection>scm:git:https://github.com/extent-framework/extentreports-testng-adapter.git</connection>
+        <developerConnection>scm:git:https://github.com/extent-framework/extentreports-testng-adapter.git</developerConnection>
+        <url>https://github.com/extent-framework/extentreports-testng-adapter</url>
+    </scm>
 
-	<licenses>
-		<license>
-			<name>The Apache Software License, Version 2.0</name>
-			<url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
-		</license>
-	</licenses>
+    <licenses>
+        <license>
+            <name>The Apache Software License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+        </license>
+    </licenses>
 
-	<developers>
-		<developer>
-			<name>Anshoo Arora</name>
-			<url>https://github.com/anshooarora</url>
-			<id>anshoo.arora</id>
-			<roles>
-				<role>Owner</role>
-			</roles>
-		</developer>
-	</developers>
+    <developers>
+        <developer>
+            <name>Anshoo Arora</name>
+            <url>https://github.com/anshooarora</url>
+            <id>anshoo.arora</id>
+            <roles>
+                <role>Owner</role>
+            </roles>
+        </developer>
+    </developers>
 
-	<properties>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-	</properties>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
 
-	<dependencies>
-		<dependency>
-			<groupId>com.aventstack</groupId>
-			<artifactId>extentreports</artifactId>
-			<version>5.0.0</version>
-		</dependency>
-		<dependency>
-			<groupId>com.aventstack</groupId>
-			<artifactId>klov-reporter</artifactId>
-			<version>5.0.0</version>
-		</dependency>
-		<dependency>
-			<groupId>org.mongodb</groupId>
-			<artifactId>mongodb-driver</artifactId>
-			<version>3.3.0</version>
-		</dependency>
-		<dependency>
-			<groupId>org.testng</groupId>
-			<artifactId>testng</artifactId>
-			<version>7.1.0</version>
-		</dependency>
-	</dependencies>
+    <dependencies>
+        <dependency>
+            <groupId>com.aventstack</groupId>
+            <artifactId>extentreports</artifactId>
+            <version>5.0.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.aventstack</groupId>
+            <artifactId>klov-reporter</artifactId>
+            <version>5.0.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.mongodb</groupId>
+            <artifactId>mongodb-driver</artifactId>
+            <version>3.3.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+            <version>7.1.0</version>
+        </dependency>
+    </dependencies>
 
 	<build>
 		<plugins>
