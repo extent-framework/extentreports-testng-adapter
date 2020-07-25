@@ -5,7 +5,7 @@
 
 	<groupId>com.aventstack</groupId>
 	<artifactId>extentreports-testng-adapter</artifactId>
-	<version>1.0.8-SNAPSHOT</version>
+	<version>1.2.0-SNAPSHOT</version>
 	<name>extentreports-testng-adapter</name>
 	<url>http://extentreports.com</url>
 	<description>TestNG adapter for Extent Framework</description>
@@ -42,7 +42,12 @@
 		<dependency>
 			<groupId>com.aventstack</groupId>
 			<artifactId>extentreports</artifactId>
-			<version>4.1.5</version>
+			<version>5.0.0</version>
+		</dependency>
+		<dependency>
+			<groupId>com.aventstack</groupId>
+			<artifactId>klov-reporter</artifactId>
+			<version>5.0.0</version>
 		</dependency>
 		<dependency>
 			<groupId>org.mongodb</groupId>
@@ -52,7 +57,7 @@
 		<dependency>
 			<groupId>org.testng</groupId>
 			<artifactId>testng</artifactId>
-			<version>6.14.3</version>
+			<version>7.1.0</version>
 		</dependency>
 	</dependencies>
 
@@ -163,5 +168,4 @@
 			<url>https://oss.sonatype.org/service/local/staging/deploy/maven2</url>
 		</repository>
 	</distributionManagement>
-
 </project>

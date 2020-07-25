@@ -46,7 +46,7 @@ public class ExtentIReporterSuiteClassListenerAdapter implements IReporter {
         }
 
         for (String s : Reporter.getOutput()) {
-            ExtentService.getInstance().setTestRunnerOutput(s);
+            ExtentService.getInstance().addTestRunnerOutput(s);
         }
 
         ExtentService.getInstance().flush();
@@ -72,14 +72,14 @@ public class ExtentIReporterSuiteClassListenerAdapter implements IReporter {
 
                 String[] groups = result.getMethod().getGroups();
                 ExtentTestCommons.assignGroups(testNode, groups);
-                
+
                 if (result.getThrowable() != null) {
                     testNode.log(status, result.getThrowable());
                 } else {
                     testNode.log(status, "Test " + status.toString().toLowerCase() + "ed");
                 }
 
-                testNode.getModel().getLogContext().getAll().forEach(x -> x.setTimestamp(getTime(result.getEndMillis())));
+                testNode.getModel().getLogs().forEach(x -> x.setTimestamp(getTime(result.getEndMillis())));
                 testNode.getModel().setStartTime(getTime(result.getStartMillis()));
                 testNode.getModel().setEndTime(getTime(result.getEndMillis()));
             }

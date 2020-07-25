@@ -43,7 +43,7 @@ public class ExtentIReporterSuiteListenerAdapter implements IReporter {
         }
 
         for (String s : Reporter.getOutput()) {
-            ExtentService.getInstance().setTestRunnerOutput(s);
+            ExtentService.getInstance().addTestRunnerOutput(s);
         }
 
         ExtentService.getInstance().flush();
@@ -65,7 +65,7 @@ public class ExtentIReporterSuiteListenerAdapter implements IReporter {
                     node.log(status, "Test " + status.toString().toLowerCase() + "ed");
                 }
 
-                node.getModel().getLogContext().getAll().forEach(x -> x.setTimestamp(getTime(result.getEndMillis())));
+                node.getModel().getLogs().forEach(x -> x.setTimestamp(getTime(result.getEndMillis())));
                 node.getModel().setStartTime(getTime(result.getStartMillis()));
                 node.getModel().setEndTime(getTime(result.getEndMillis()));
             }

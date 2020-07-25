@@ -1,6 +1,10 @@
 package com.aventstack.extentreports.testng.listener;
 
-import org.testng.*;
+import org.testng.IInvokedMethod;
+import org.testng.IInvokedMethodListener;
+import org.testng.ITestContext;
+import org.testng.ITestListener;
+import org.testng.ITestResult;
 
 import com.aventstack.extentreports.AnalysisStrategy;
 import com.aventstack.extentreports.service.ExtentService;
@@ -38,7 +42,10 @@ public class ExtentITestListenerAdapter implements ITestListener, IInvokedMethod
 
     @Override
     public synchronized void onTestSkipped(ITestResult result) {
-        ExtentTestManager.log(result);
+        if (result.wasRetried()) {
+            ExtentService.getInstance().removeTest(result.getName());
+        } else
+            ExtentTestManager.log(result);
     }
 
     @Override
