@@ -1,14 +1,12 @@
-[![Maven Central](https://img.shields.io/maven-central/v/com.aventstack/extentreports-testng-adapter.svg?maxAge=300)](http://search.maven.org/#search|ga|1|g:"com.aventstack")
+## ExtentReports Plugin for TestNG [![Maven Central](https://img.shields.io/maven-central/v/com.aventstack/extentreports-testng-adapter.svg?maxAge=300)](http://search.maven.org/#search|ga|1|g:"com.aventstack")
 
-### Extent Framework TestNG Adapter
+### Docs
 
 See [here](http://extentreports.com/docs/versions/4/java/testng.html) for complete docs.
 
-#### Usage
-
 See the [Listeners](http://extentreports.com/docs/versions/4/java/testng.html#listeners) section for usage instructions.
 
-#### Examples
+### Examples
 
 An example project is available [here](https://github.com/extent-framework/examples/tree/master/extentreports-testng-adapter-example) to understand the usage.
 
@@ -35,36 +33,39 @@ public class SimpleAssertTests {
 }
 ```
 
+### Config
+
 Configuration can be added under `src/test/resources` as shown [here](https://github.com/extent-framework/examples/tree/master/extentreports-testng-adapter-example/src/test/resources).  Note the contents of `extent.properties` which can be used to enable/disable reporters, set path to the configuration file, and also to output to a desired location.
 
 ```
-extent.reporter.avent.start=false
-extent.reporter.bdd.start=false
-extent.reporter.cards.start=false
-extent.reporter.email.start=false
-extent.reporter.html.start=true
+# spark-reporter
+extent.reporter.spark.start=true
+extent.reporter.spark.config=
+extent.reporter.spark.out=test-output/SparkReport/Index.html
+
+# klov-reporter
 extent.reporter.klov.start=false
-extent.reporter.logger.start=false
-extent.reporter.tabular.start=false
+extent.reporter.klov.config=src/test/resources/klov.properties
 
-extent.reporter.avent.config=
-extent.reporter.bdd.config=
-extent.reporter.cards.config=
-extent.reporter.email.config=
-extent.reporter.html.config=src/test/resources/html-config.xml
-extent.reporter.klov.config=
-extent.reporter.logger.config=
-extent.reporter.tabular.config=
-
-extent.reporter.avent.out=test-output/AventReport/
-extent.reporter.bdd.out=test-output/BddReport/
-extent.reporter.cards.out=test-output/CardsReport/
-extent.reporter.email.out=test-output/EmailReport/ExtentEmail.html
-extent.reporter.html.out=test-output/HtmlReport/ExtentHtml.html
-extent.reporter.logger.out=test-output/LoggerReport/
-extent.reporter.tabular.out=test-output/TabularReport/
+# json-reporter
+extent.reporter.json.start=false
+extent.reporter.json.out=test-output/JsonReport/Extent.json
 ```
 
-#### License
+#### Klov
 
-extentreports-testng-adapter is MIT licensed.
+If you are using Klov (version 1.0+), extra configuration would be required, which can be loaded from `extent.reporter.klov.config` above.
+
+```
+mongodb.host=127.0.0.1
+mongodb.port=27017
+mongodb.uri=
+klov.host=http://127.0.0.1
+klov.port=80
+klov.project.name=ProjectName
+klov.report.name=
+```
+
+### License
+
+TestNG plugin for ExtentReports is open-source software and licensed under Apache-2.
