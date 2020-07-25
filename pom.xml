@@ -42,7 +42,12 @@
 		<dependency>
 			<groupId>com.aventstack</groupId>
 			<artifactId>extentreports</artifactId>
-			<version>5.0.0-SNAPSHOT</version>
+			<version>5.0.0</version>
+		</dependency>
+		<dependency>
+			<groupId>com.aventstack</groupId>
+			<artifactId>klov-reporter</artifactId>
+			<version>5.0.0</version>
 		</dependency>
 		<dependency>
 			<groupId>org.mongodb</groupId>
@@ -163,5 +168,4 @@
 			<url>https://oss.sonatype.org/service/local/staging/deploy/maven2</url>
 		</repository>
 	</distributionManagement>
-
 </project>
