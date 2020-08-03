@@ -37,7 +37,10 @@ public class ExtentITestListenerAdapter implements ITestListener {
 
     @Override
     public synchronized void onTestSkipped(ITestResult result) {
-        ExtentTestManager.log(result);
+        if (result.wasRetried()) {
+            ExtentService.getInstance().removeTest(result.getName());
+        } else
+            ExtentTestManager.log(result);
     }
 
     @Override
