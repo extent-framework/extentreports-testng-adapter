@@ -91,6 +91,7 @@ public class ExtentTestManager {
     }
 
     public static synchronized void log(ITestResult result, Boolean createTestAsChild) {
+        String testDescription = result.getMethod().getDescription() == null ? "" : result.getMethod().getDescription().trim();
         String msg = "Test ";
         Status status = Status.PASS;
         switch (result.getStatus()) {
@@ -106,9 +107,14 @@ public class ExtentTestManager {
                 msg += "passed";
                 break;
         }
+        msg = createTestAsChild && !testDescription.isEmpty() ? testDescription : msg;
         if (ExtentTestManager.getTest(result) == null)
             ExtentTestManager.createMethod(result, createTestAsChild);
-        if (result.getThrowable() != null) {
+
+        if ((result.getThrowable() != null) && createTestAsChild && !testDescription.isEmpty()) {
+            if (!testDescription.isEmpty()) {
+                ExtentTestManager.getTest(result).info(testDescription);
+            }
             ExtentTestManager.getTest(result).log(status, result.getThrowable());
             return;
         }
